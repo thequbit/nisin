@@ -4,6 +4,15 @@
 
 	include 'mysqlcredentials.php';
 
+	/*
+	echo "----</br>";
+	echo $host . "</br>";
+	echo $username . "</br>";
+	echo $password . "</br>";
+	echo $db_name . "</br>";
+	echo "----</br>";
+	*/
+
 	// Connect to server and select databse.
 	mysql_connect("$host", "$username", "$password") or die("cannot connect"); //TODO: something more eligant than this ...
 	mysql_select_db("$db_name")or die("cannot select DB");
@@ -11,6 +20,9 @@
 	// username and password sent from form 
 	$myusername=$_POST['myusername']; 
 	$mypassword=$_POST['mypassword'];
+
+	//echo $myusername . "</br>";
+	//echo $mypassword . "</br>";
 
 	// To protect MySQL injection (ooo fancy!)
 	$myusername = stripslashes($myusername);
@@ -22,12 +34,17 @@
 	$mypassword = md5($mypassword);
 
 	// get the user from the database
-	$sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
+	$sql="SELECT * FROM users WHERE username='$myusername' and password='$mypassword'";
+	
+	//echo $sql . "</br>";
+
 	$result=mysql_query($sql);
 	
 	// Mysql_num_row is counting table row
 	$count=mysql_num_rows($result);
 	
+	//echo $count . "</br>";
+
 	// If result matched $myusername and $mypassword, table row must be 1 row
 
 	if($count==1){
@@ -58,16 +75,19 @@
 			
 			// redirect to main.php, we are now logged in.
 			header("location:main.php");
-			
+			//echo "forward to main.php ...";
 		}
 		else
 		{
 			echo "<meta http-equiv=\"REFRESH\" content=\"0;url=notvalidated.html\">";
+			//echo "notvalidated.html ...";
 		}
 		
 	}
 	else {
 		echo "<meta http-equiv=\"REFRESH\" content=\"0;url=badlogin.html\">";
+		//echo "badlogin.html ...";
 	}
+
 	
 ?>
