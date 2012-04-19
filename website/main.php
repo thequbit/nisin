@@ -172,12 +172,7 @@
 						
 						<?
 						
-							// mysql constants
-							$host="localhost";
-							$username="mysqluser";
-							$password="mysqluser123%%%";
-							$db_name="webwatcher"; 
-							$tbl_name="watcherlist"; // table of url's to watch
+							include 'mysqlcredentials.php';
 							
 							// Connect to server and select databse.
 							mysql_connect("$host", "$username", "$password") or die("cannot connect"); //TODO: something more eligant than this ...
