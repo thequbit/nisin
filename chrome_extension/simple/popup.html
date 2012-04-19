@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<title>Getting Started Extension's Popup</title>
+
+<script src="popup.js"></script>
+
+</head>
+<body>
+  
+  <div>
+
+	<form name="loginform" method="post" action="http://ziessland.com/plugin_web/plugin_newurl.php">
+		
+		URL to Watch:</br>
+		<input name="urltext" type="text" id="id_url" size="60" value=""></br>
+		
+		WebWatcher Name:</br>
+		<input name="nametext" type="id_text" id="id_name" size="40"></br>
+		
+		Keyword to check for:</br>
+		<input name="keywordtext" type="text" id="id_keyword" size="40" value=""></br>
+		
+		<!-- TODO: sanity check this input to make sure it is an email, twitter address, or phone number -->
+		Contact to use:</br>
+		<input name="contacttext" type="text" id="id_contact" size="40" value=""></br>
+		
+		Check this page every 
+		<Select name="frequencyselect">
+			<Option Value='0'>Hour</Option>
+			<Option Value='1'>6 Hours</Option>
+			<Option Value='2'>12 Hours</Option>
+			<Option Value='3'>24 Hours</Option>
+			<Option Value='4'>Week</Option>
+			<Option Value='5'>Two Weeks</Option>
+			<Option Value='6'>Month</Option>
+		</Select>
+		
+		</br> </br>
+		
+		<input type="submit" name="updatebutton" value="Add URL"></br>
+
+	</form>
+	
+	</div>
+  
+  </body>
+</html>
