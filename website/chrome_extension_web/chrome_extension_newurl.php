@@ -15,13 +15,8 @@
 
 	<?
 	
-		// mysql constants
-		$host="localhost";
-		$username="mysqluser";
-		$password="mysqluser123%%%";
-		$db_name="webwatcher"; 
-		$tbl_name="watchlist"; 
-
+		include '../mysqlcredentials.php';
+		
 		// Connect to server and select databse.
 		$con = mysql_connect("$host", "$username", "$password") or die("cannot connect"); //TODO: something more eligant than this ...
 		mysql_select_db("$db_name") or die("cannot select DB");
