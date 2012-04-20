@@ -16,7 +16,7 @@
 
 	function populatetextbox(username)
 	{
-		var TheTextBox = document.getElementById("username");
+		var TheTextBox = document.getElementById("usertovalidate");
 		var text = username.substr(0,username.indexOf("[",0)-1);
 		TheTextBox.value = text;
 	}
