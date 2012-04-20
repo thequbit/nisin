@@ -72,7 +72,7 @@
 			</br> </br>
 
 			User To Validate: </br>
-			<input name="textinput" type="text" id="username">
+			<input name="textinput" type="text" id="usertovalidate">
 			
 			<input type="submit" name="Submit" value="validate">
 
