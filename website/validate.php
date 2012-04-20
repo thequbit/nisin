@@ -18,7 +18,7 @@
 	$usertovalidate=$_POST['usertovalidate'];
 	
 	// our query to update the user to validated state
-	$sql = "update users set validated = '1' where username='tim'";
+	$sql = "update users set validated = '1' where username='$usertovalidate'";
 	
 	// peform query.
 	$result=mysql_query($sql);
