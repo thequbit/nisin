@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            body 
+            { 
+                min-width: 420px; 
+                overflow-x: hidden; 
+                font-family: Arial, sans-serif; 
+                font-size: 12px; 
+            }
+            input#addurl { font-weight: bold; width: auto; }
+			
+        </style>
+		
+        <script>
+            // This callback function is called when the content script has been 
+            // injected and returned its results
+            function onPageInfo(o) 
+            {
+                document.getElementById("id_divid").value = o.div_tag; 
+                document.getElementById("id_url").value = o.url; 
+            } 
+
+            // Call the getPageInfo function in the background page, passing in 
+            // our onPageInfo function as the callback
+            window.onload = function() 
+            { 
+                var bg = chrome.extension.getBackgroundPage();
+                bg.getPageInfo(onPageInfo);
+            }
+			
+        </script>
+    </head>
+    <body>
+	
+        <form id="addbookmark" onsubmit="http://ziessland.com/plugin_web/chrome_extension_newurl.php">
+        	
+			<p><label for="id_watchername">Watcher Name:</label><br />
+        	<input type="text" id="id_watchername" name="watchername" size="35" value="" /></p>
+			
+			<p><label for="id_url">URL:</label><br />
+        	<input type="text" id="id_url" name="url" size="35" value="" /></p>
+        	
+			<p><label for="id_divid">DIV ID:</label><br />
+        	<input type="text" id="id_divid" name="divid" size="35" value="" /></p>
+        	
+			<p><label for="id_keyword">Keyword:</label><br />
+        	<input type="text" id="id_keyword" name="keyword" cols="35"></textarea></p>
+			
+			<!-- TODO: sanity check this input to make sure it is an email, twitter address, or phone number -->
+			<p><label for="id_contact">Contact to use:</label><br />
+			<input type="text" id="id_contact" name="contact" size="35" value=""></br>
+		
+			Check this page every 
+			<Select name="frequencyselect">
+				<Option Value='0'>Hour</Option>
+				<Option Value='1'>6 Hours</Option>
+				<Option Value='2'>12 Hours</Option>
+				<Option Value='3'>24 Hours</Option>
+				<Option Value='4'>Week</Option>
+				<Option Value='5'>Two Weeks</Option>
+				<Option Value='6'>Month</Option>
+			</Select>
+			
+			<p><input name="addurl" id="addurl" type="submit" value="Add URL" /></p>
+			
+        </form>
+    </body>
+</html>
