@@ -203,7 +203,7 @@
 							if( $count==0 )
 							{
 								echo "</br></br>";
-								echo "You do not currently have any WebWatcher URL's loaded.  Click \"New\" above to create one!</br>";
+								echo "You do not currently have any WebWatcher URL's loaded.  Doawnload the chrome extension to add new URL's</br>";
 							}
 							else
 							{
